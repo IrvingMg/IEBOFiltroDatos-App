@@ -14,15 +14,22 @@ Para ejecutar el proyectos de forma local seguir las siguientes instrucciones:
 git clone https://github.com/IrvingMg/IEBOConsultas-App.git
 ```
 
-2. Instalar dependencias
+2. Copiar archivo `.env.example` y renombrarlo como `.env`
+
+3. Instalar dependencias
 ```
 composer install
 ```
 
-3. Ejecutar proyecto localmente
+4. Ejecutar el comando
+```
+php artisan key:generate
+```
+
+5. Ejecutar proyecto localmente
 ```
 php artisan serve
 ```
 
 ## Construido con
-* [Laravel](https://laravel.com) - PHP Framework
+* [Laravel 5.8](https://laravel.com) - PHP Framework

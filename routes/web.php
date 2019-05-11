@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ImportarDatosController@index');
+Route::post('/comparar', 'ImportarDatosController@comparar');

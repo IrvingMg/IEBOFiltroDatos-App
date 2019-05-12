@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/', 'ImportarDatosController@index');
-Route::post('/comparar', 'ImportarDatosController@comparar');
+Route::get('/', 'CompararDatosController@index');
+Route::post('/comparar', 'CompararDatosController@comparar');

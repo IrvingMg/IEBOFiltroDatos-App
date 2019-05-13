@@ -36,7 +36,12 @@ composer install
 php artisan key:generate
 ```
 
-6. Ejecutar proyecto localmente
+6. Ejecutar migraciones
+```
+php artisan migrate
+```
+
+7. Ejecutar proyecto localmente
 ```
 php artisan serve
 ```

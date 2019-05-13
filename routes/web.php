@@ -11,5 +11,8 @@
 |
 */
 
-Route::get('/', 'CompararDatosController@index');
-Route::post('/comparar', 'CompararDatosController@comparar');
+Route::get('/', 'ImportarDatosController@index');
+Route::post('/importar', 'ImportarDatosController@importarArchivos');
+
+Route::get('/cruzar', 'CruzarDatosController@index');
+Route::get('/cruzar/{tipo}', 'CruzarDatosController@cruzar');

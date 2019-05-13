@@ -7,8 +7,8 @@
         <title>Inicio</title>
     </head>
     <body>
-        <h1> Comparar datos IMSS y IEBO </h1>
-        <form action="{{url('/comparar')}}" method="post" enctype="multipart/form-data">
+        <h1> Paso 1 de 2: Importar datos IEBO e IMSS </h1>
+        <form action="{{url('/importar')}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             <ol>
                 <li>
@@ -20,12 +20,12 @@
                     <input type="file" name="coincidenciasNomFec" id="file2">
                 </li>
                 <li>
-                    <label for="file3">Coincidencias</label>
-                    <input type="file" name="coincidencias" id="file3">
+                    <label for="file3">Relación de asegurados</label>
+                    <input type="file" name="asegurados" id="file3">
                 </li>
             </ol>
             <footer>
-                <input type="submit" value="Comparar">
+                <input type="submit" value="Importar">
             </footer>
         </form>
     </body>

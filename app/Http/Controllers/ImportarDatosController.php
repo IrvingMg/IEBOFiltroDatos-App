@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+// Tiempo máximo de ejecución para el script en segundos
+ini_set('max_execution_time', 300);
+
 use App\CoincidenciasCurp;
 use App\CoincidenciasNombreFecha;
-use App\Coincidencias;
+use App\Asegurados;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
-class CompararDatosController extends Controller
+class ImportarDatosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,10 +28,10 @@ class CompararDatosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function comparar(Request $request) {
+    public function importarArchivos(Request $request) {
         $file1 = $request->file('coincidenciasCurp');
         $file2 = $request->file('coincidenciasNomFec');
-        $file3 = $request->file('coincidencias');
+        $file3 = $request->file('asegurados');
         
         if(!$file1 || !$file2 || !$file3) {
             return "Error. Seleccione tres archivos para comparar.";
@@ -36,9 +39,9 @@ class CompararDatosController extends Controller
 
         $this->importar($file1, CoincidenciasCurp::class);
         $this->importar($file2, CoincidenciasNombreFecha::class);
-        $this->importar($file3, Coincidencias::class);
+        $this->importar($file3, Asegurados::class);
 
-        return "Datos importados";
+        return redirect('/cruzar');
     }
 
     /**
@@ -47,8 +50,9 @@ class CompararDatosController extends Controller
      * @return void
      */
     private function importar($file, $model) {
-        define('CHUNK_SIZE', 1000);
-
+        if (!defined('CHUNK_SIZE')) {
+            define('CHUNK_SIZE', 1000);
+        }
         $path = $file->getRealPath();
         $data = Excel::load($path, function($reader) {})->get();
         $data = $data->toArray();  

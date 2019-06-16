@@ -1,5 +1,5 @@
-# Sistema de consultas para el IEBO
-Aplicación web para el procesamiento y cruce de datos entre el seguro facultativo del IMSS y el IEBO.
+# Sistema de filtrado de datos
+Aplicación web para el cruce de datos del IEBO y el seguro facultativo del IMSS.
 
 ## Comenzando
 Para ejecutar el proyectos de forma local seguir las siguientes instrucciones:
